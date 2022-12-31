@@ -22,9 +22,10 @@ search_element1= driver.find_element(By.ID, "search-but")
 search_element1.click()
 time.sleep(5)
     
-job_list = []
+job_list = [] 
 element_no = 1
-for i in range (17):
+loop_no= driver.find_elements(By.XPATH, "//*/h2/a")
+for i in range (len(loop_no)):
     search_results = driver.find_elements(By.XPATH, "//*/h2/a")[element_no].click()
     print("done before")
     time.sleep(5)
@@ -46,3 +47,5 @@ for i in range (17):
     element_no += 1
     driver.back()
     time.sleep (5)
+
+pd.DataFrame(job_list) 
